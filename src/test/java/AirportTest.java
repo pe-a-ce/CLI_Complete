@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.List;
 
 class AirportTest {
 
@@ -54,11 +55,11 @@ class AirportTest {
         testAirport.addFlight(Destination.HAWAII, 1);
         testAirport.displayFlights();
 
-        String expectedOutput = "HAWAII, Flight number 1\n";
+//        String expectedOutput = "HAWAII, Flight number 1\n";
+        List<Flight> expectedOutput = testAirport.getAllFlights();
 
 //        Then
-
-        assertEquals(expectedOutput, outContent.toString());
+        assertEquals(expectedOutput + "\n", outContent.toString());
     }
 
 //    test to remove existing flight

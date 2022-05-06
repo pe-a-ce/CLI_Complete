@@ -1,26 +1,35 @@
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class MainTest {
 
+    @Disabled
     @Test
     void displayMenu() {
+
         fail();
     }
 
+    @Disabled
     @Test
     void addNewFlight() {
+
         fail();
     }
 
-    @Test
-    void displayFlights() {
-        fail();
-    }
 
+    @Disabled
     @Test
     void addPassenger() {
+
         fail();
     }
 
@@ -38,15 +47,45 @@ class MainTest {
         assertEquals("Rick", testFlight.getPassengers().get(0).getFirstName());
     }
 
-
-
     @Test
-    void cancelAnExistingFlight() {
-        fail();
+    void cancelAnExistingFlight__withOneFlightAdded() {
+//        Given
+        Airport testAirport = new Airport();
+        testAirport.addFlight(Destination.HAWAII, 999);
+
+//        When
+        testAirport.removeFlight(testAirport.getAllFlights().get(0));
+
+//        Then
+        assertTrue(testAirport.getAllFlights().isEmpty());
     }
 
     @Test
+    void cancelAnExistingFlight__withTwoFlightsAdded() {
+//        Given
+        Airport testAirport = new Airport();
+        testAirport.addFlight(Destination.HAWAII, 999);
+        testAirport.addFlight(Destination.LONDON, 666);
+
+//        When
+        testAirport.removeFlight(testAirport.getAllFlights().get(0));
+        testAirport.removeFlight(testAirport.getAllFlights().get(0));
+
+
+//        Then
+        assertTrue(testAirport.getAllFlights().isEmpty());
+    }
+
+
+
+
+
+    @Disabled
+    @Test
     void passengerNotFound() {
-        fail();
+//        ByteArrayInputStream testIn = new ByteArrayInputStream();
+        //System.setIn(new PrintStream(testIn));
+        //ByteArrayInputStream testIn = new ByteArrayInputStream(data.getBytes());
+        final String testString = "Hello!";
     }
 }

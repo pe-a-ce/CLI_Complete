@@ -10,7 +10,6 @@ public class Main {
         Airport ukAirport = new Airport();
         List<Passenger> emptyPassengers = new ArrayList<>();
 
-
         emptyPassengers.add(new Passenger("John", "Smith", "Jsmith@Gmail.com", 1));
         //        Just as a placeholder to prove case 2 is functional.
         ukAirport.addFlight(Destination.BARCELONA, 1);
@@ -177,9 +176,7 @@ public class Main {
                 loop = false;
             } catch (Exception e) {
                 msg = "Flight not found! Try Again";
-//            throw new RuntimeException(e);
-                System.out.println("Please provide the flight ID to book on to: ");
-                flightId = in.nextInt();
+                System.out.println(msg);
             }
         }
         System.out.println("You have chosen Flight number: " + flightToAdd.getFlightId() + ", to " + flightToAdd.getDestination());
@@ -212,6 +209,7 @@ public class Main {
                 }
             } catch (Exception e) {
                 System.out.println("Invalid input");
+                in.next();
             }
         }
     }
