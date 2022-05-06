@@ -38,28 +38,13 @@ public class Main {
             System.out.println("You chose option " + option);
 
             switch (option) {
-                case 1:
-                    addNewFlight(in, ukAirport, emptyPassengers);
-                    break;
-                case 2:
-                    displayFlights(in, ukAirport, emptyPassengers);
-                    break;
-//                After we complete all the test cases, can add some logic in so when a plane has 10 passengers,
-//                it is 'Full' and is not 'Available' anyone.
-                case 3:
-                    addPassenger(in, emptyPassengers);
-                    break;
-                case 4:
-                    bookAPassenger(in, ukAirport, emptyPassengers);
-                    break;
-                case 5:
-                    cancelAnExistingFlight(in, ukAirport, emptyPassengers);
-                    break;
-                case 0:
-                    System.out.println("Good bye!");
-                    break;
-                default:
-                    System.out.println("Try again. Pick a number between 0 and 5");
+                case 0 -> System.out.println("Exit system, Good bye!");
+                case 1 -> addNewFlight(in, ukAirport, emptyPassengers);
+                case 2 -> displayFlights(in, ukAirport, emptyPassengers);
+                case 3 -> addPassenger(in, emptyPassengers);
+                case 4 -> bookAPassenger(in, ukAirport, emptyPassengers);
+                case 5 -> cancelAnExistingFlight(in, ukAirport, emptyPassengers);
+                default -> System.out.println("Try again. Pick a number between 0 and 5");
             }
         } while (option != 0);
     }
